@@ -42,3 +42,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+*.fdb_latexmk
+*.fls
