@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}  % Some math symbols
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+
+\renewcommand*{\familydefault}{\sfdefault}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\pagestyle{empty}
+
+\pagestyle{fancy}
+\fancypagestyle{firststyle}
+{
+   \lhead{\myname \\ \myandrew \\ \today \\ \vspace*{-.4em}}
+   \rhead{15-221 \\ Fall 2014 \\ Section A \\ \vspace*{-.4em}}
+   \setlength{\headsep}{45pt}
+}
+
+\newcommand{\myname}{Your name here}
+\newcommand{\myandrew}{andrewid@andrew.cmu.edu}
+\newcommand{\mytitle}{Explanations for Technical and Non-Technical Audiences}
+\title{Writing Assignment 3 \\ \vspace*{.5em} \Large\mytitle}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagenumbering{gobble} 
+\clearpage\maketitle
+\thispagestyle{firststyle}
+\newpage
+\pagenumbering{arabic}  
+\lhead{\myname}
+\rhead{\thepage}
+\setlength{\voffset}{-50pt}
+\setlength{\headsep}{25pt}
+
+\par {\bf Term: Stack}
+~\\
+\par {\bf Audience 1 (Denny, my friend, a materials engineering major at CMU)}
+
+In computer science, stack is a data structure that is frequently used in computer programs to store information. Stack may be considered as a collection of elements that supports two operations -- the addition of an element (\emph{push}), and the removal of the element that was most recently added (\emph{pop}).
+
+Such a relation between \emph{push} and \emph{pop} stipulates that stack maintains a Last-In-First-Out data structure. This means that the last element that was added (\emph{push}ed) into the stack is always the one first to be removed from the stack, when the \emph{pop} operation is performed.
+
+In addition to the essential \emph{push} and \emph{pop} operations, some stacks may also keep track of its size, namely the total number of elements currently stored in a stack. Other stacks may support the \emph{peek} operation, which allows users to inspect the element on the top of a stack without removing it from the top.
+
+While it may seem that stack supports restricted features, as opposed to other data structures such as array, the true of value of stacks comes with the limited operations that they support. It guarantees instant time for adding an element to the top of a stack, and for removing the top element of a stack, but takes much longer to access or remove other elements than the one on top. For many applications in computer science that requires only instant time addition and top removal, stacks are more efficient than other data structures that support more operations.
+
+~\\
+\par {\bf Audience 2 (My mother, who has no knowledge in computer science)}
+
+We often use stack to store information in computer programs. Before I explain what a stack is, imagine a stack of dishes in the kitchen. It's quite easy for you to add a dish on top of a stack of dishes, or to remove the dish on the top, but it would be considerably harder for you to access other dishes in the stack than the one on top. In the field of computer science, we call such a phenomenon as Last-In-First-Out, which by its literal meaning, infers that the last dish you just added onto the stack will also be the first one you can remove or have access to.
+
+Similarly in computer science, stack is frequently used as a Last-In-First-Out data structure to hold information. Instead of holding a stack of dishes, computer programs use stack to hold digital information, such as numbers or word strings, whereas now any one element of digital information in the stack corresponds to a dish in the dish tray.
+
+Just as how stacks are useful in real world, stacks serve as one of the fundamental data structures and are widely used in the field of computer science.
+\end{document}
