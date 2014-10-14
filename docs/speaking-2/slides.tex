@@ -1,0 +1,224 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{Hannover}
+\usecolortheme[dark]{solarized}
+
+\title{ExplainShell for Chrome}
+\author{Jacob Zimmerman, Justin Gallagher, Ted Li, Howard Chen}
+\institute{Carnegie Mellon University}
+\date{\today}
+
+\begin{document}
+
+%\section{ExplainShell for Chrome}\label{explainshell-for-chrome}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\section{Table of Contents}\label{toc}
+\begin{frame}{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Problem}\label{problem}
+\begin{frame}{Problem}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Random code snippets pose threat to unsuspecting web users
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    people have a risk of running malicious or insecure commands
+  \end{itemize}
+\item
+  Often difficult to look through \texttt{man} pages for relevant
+  documentation
+\item
+  Sites like \href{http://explainshell.com/}{explainshell.com} make this
+  easier, but there's still a barrier
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Have to copy, navigate to another page, paste
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Approach}\label{approach}
+\begin{frame}{Approach: Plan}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Context menu link (select text and go)
+\item
+  In-page link to jump to explainshell.com
+\item
+  Insert in-page summary on hover
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Contribute programmable API back to explainshell.com to facilitate
+    in-page summary
+  \end{itemize}
+\item
+  Analytics site to show trending commands, referring sites, popular
+  pages, etc.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Approach: Timeline}
+  \begin{center}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../gantt-chart}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Approach: Methodology}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Chrome Extension: HTML/CSS/JavaScript
+\item
+  \href{http://explainshell.com/}{explainshell.com} (API)
+\item
+  Backend for analytics and trends: Node.js
+\item
+  VC with Git (hosted on GitHub)
+\item
+  \href{http://github.com/justingallagher/explainshell-for-chrome}{github.com/justingallagher/explainshell-for-chrome}
+\end{itemize}
+
+\end{frame}
+
+\section{Literature Review}\label{lit-review}
+\begin{frame}{Literature Review}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{http://explainshell.com/}{explainshell.com} and \texttt{man}
+  pages
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    very comprehensive
+  \item
+    hard to find new things to learn
+  \end{itemize}
+\item
+  \href{http://www.bashoneliners.com/}{bashoneliners.com}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    documents bash one-liners
+  \item
+    sorts by popularity
+  \item
+    limited by what is posted to site
+  \end{itemize}
+\item
+  \href{http://linuxcommand.org/}{linuxcommand.org}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    beginner's tutorial to the command line environment
+  \item
+    hard to quickly grok
+  \end{itemize}
+\item
+  \href{http://www.tldp.org/}{tldp.org}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    incredibly widespread documentation on all things Linux
+  \item
+    again, hard to quickly grok
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Benefits}\label{benefits}
+\begin{frame}{Benefits}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  User can easily look up shell commands and determine what they do
+\item
+  Educate user in bash
+\item
+  Allow users to avoid running malicious or insecure commands
+\end{itemize}
+
+\end{frame}
+
+\section{Qualifications}\label{quals}
+\begin{frame}{Qualifications}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Jake Zimmerman
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    1 year full-stack web development
+  \item
+    Interned at Bloomberg L.P. working on software engineering
+  \end{itemize}
+\item
+  Justin Gallagher
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    2 years of full-stack web development
+  \item
+    Interned at Microsoft writing ASP.NET web apps
+  \end{itemize}
+\item
+  Ted Li
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Experience in iOS and web programming
+  \item
+    Interned at Bloomberg L.P. doing natural language processing
+  \end{itemize}
+\item
+  Howard Chen
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Strong background in algorithmic thinking (15-210)
+  \item
+    Taught principles of programming and software development, summer
+    2014
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Summary}\label{summary}
+\begin{frame}{Summary}
+  \tableofcontents
+\end{frame}
+
+\end{document}
