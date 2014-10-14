@@ -46,3 +46,6 @@ Temporary Items
 
 *.fdb_latexmk
 *.fls
+*.nav
+*.snm
+.*.swp
