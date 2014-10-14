@@ -6,15 +6,15 @@ A Chrome extension for quickly grokking bash snippets
 
 ## Problem
 
-## Aproach
+## Approach
 
-## Aproach: Plan
+## Approach: Plan
 
-## Aproach: Methodology
+## Approach: Methodology
 
-## Aproach: Schedule
+## Approach: Schedule
 
-## Aproach: Chart
+## Approach: Chart
 
 ## Literature Review
 
