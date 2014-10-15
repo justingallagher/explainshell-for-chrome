@@ -61,14 +61,14 @@ For this project, we have set up a Git repository that allows us to coordinate a
 
 This project will benefit both our team and end users. For users, the project will provide a convenient way to look up and learn the usage of unfamiliar shell commands found online. Considering that shell commands are often powerful and can sometimes be malicious, the project can also potentially automatically warn users about malicious shell commands before they execute the commands. 
 
-We will learn to use and familiarize with a lot of technologies in the process as well, including Git, Chrome extension, Javascript and Python. Through the process, we will also contribute to the explainshell open source project.
+We will learn to use and familiarize with a lot of technologies in the process as well, including Git, Chrome extension, Javascript and Python. Through the process, we will also contribute to the ExplainShell open source project.
 
 \section{Approach}
 \subsection{Methodology}
 
-In this section, we will explain the various technologies that we we will be using to complete the project. Through our project, we will develop a Chrome extension and a back-end server that provides analytics about trending shell commands. We will also contribute to the current code base of the open source explainshell project. 
+In this section, we will explain the various technologies that we we will be using to complete the project. Through our project, we will develop a Chrome extension and a back-end server that provides analytics about trending shell commands. We will also contribute to the current code base of the open source ExplainShell project. 
 
-For the Chrome extension, we will use Javascript and jQuery to scan and parse the webpage that user visits, to identify potential shell commands within a web page. We will then use AJAX to send requests to the explainshell API and receive documentations of identified commands. We will also use HTTP + CSS to layout a pop-up window that displays the documentation. 
+For the Chrome extension, we will use Javascript and jQuery to scan and parse the webpage that user visits, to identify potential shell commands within a web page. We will then use AJAX to send requests to the ExplainShell API and receive documentations of identified commands. We will also use HTTP + CSS to layout a pop-up window that displays the documentation. 
 
 We will also create a back-end server with Node.js. The back-end server will store the history of shell commands that users look up using our extension, using a SQL database. The data will allow us to provide analytics and visualization about popular or trending searches.
 
@@ -76,18 +76,22 @@ We will also create a back-end server with Node.js. The back-end server will sto
 Specifically, our project will be separated into the following four phases. 
 
 \par{\bf Phase 1}\\ 
-We will first build a simple Chrome extension that allows user to look up the usage of shell command by selecting and highlighting any text in the browser window. Upon highlighting, a button will appear next to the highlighted text region. The user may click the button, which will instantly redirect the user to the corresponding usage documentation at the explainshell website in a new browser tab.
+We will first build a simple Chrome extension that allows user to look up the usage of shell command by selecting and highlighting any text in the browser window. Upon highlighting, a button will appear next to the highlighted text region. The user may click the button, which will instantly redirect the user to the corresponding usage documentation at the ExplainShell website in a new browser tab.
 
 \par{\bf Phase 2}\\
-We will refine our Chrome extension developed in Phase 1. Instead of asking the user to highlight the shell command that they want to look up, the Chrome extension will now automatically parse and search the web page to identify any shell commands. Upon identifying potential commands, the extension will turn the command into a clickable link, which will redirect the user to the usage documentation at the explainshell website.
+We will refine our Chrome extension developed in Phase 1. Instead of asking the user to highlight the shell command that they want to look up, the Chrome extension will now automatically parse and search the web page to identify any shell commands. Upon identifying potential commands, the extension will turn the command into a clickable link, which will redirect the user to the usage documentation at the ExplainShell website.
 
 \par{\bf Phase 3}\\
-We will contribute to the code base of the explainshell project by adding an HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers / clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
+We will contribute to the code base of the ExplainShell project by adding an HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers / clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
 
 \par{\bf Phase 4}\\
 We will develop a back-end server that provides analytics that allow users to view trending searches and referral sites. These analytics will provide insight in which shell commands people take most interest in or are confused about.
 
 Please refer to Fig. \ref{fig:timetable} on page \pageref{fig:timetable} for a Gantt chart of our project schedule.
+
+\section{Evaluation}
+
+Our goal is to create a user-friendly Chrome extension and to eventually publish it onto the Chrome extension store. Interested users may download the ExplainShell Chrome extension. On one hand, we will ask our friends and classmates to help evaluate our extension, on its utility and ease of use. On the other hand, we will also request feedbacks from users who downloaded our extension from the Chrome extension store.
 
 \section{Qualifications}
 
@@ -98,7 +102,7 @@ There may be specific technologies that we are unfamiliar with, but they should 
 \begin{landscape}
 \thispagestyle{empty}
 \begin{figure}[htb]
-\vspace*{5em}
+\vspace*{6em}
 \hspace*{-3em}
 \centering
 \includegraphics[width=1.5\textwidth]{gantt-chart.png}
@@ -109,7 +113,7 @@ There may be specific technologies that we are unfamiliar with, but they should 
 \begin{thebibliography}{9}
 
 \bibitem{explainshell}
-  ``Explainshell project -- write down a command-line to see the help text that 
+  ``ExplainShell project -- write down a command-line to see the help text that 
   matches each argument'',
   \url{http://explainshell.com/}
 
