@@ -58,7 +58,7 @@ Dear Mr. Keating:\\
 
 Please find attached to this letter our team's proposal for ExplainShell for Chrome. The proposal will outline the details of this Google Chrome extension and demonstrate our plan for its execution, as well as testing and evaluation criteria.\\
 
-The document contains an abstract, an introduction, a literature review, a plan, a discussion of the project's benefits, our approach, evaluation criteria, and the qualifications of team members.\\
+The document contains an abstract, an introduction, a literature review, a plan, a discussion of the project's benefits, our approach, evaluation criteria, and the qualifications of our team members.\\
 
 Please direct any questions or comments about the proposal to jrgallag@andrew.cmu.edu.\\
 
@@ -108,7 +108,7 @@ This paper is a proposal for ExplainShell for Chrome, a Google Chrome extension 
 \section{Introduction}
 ExplainShell for Chrome will be a Google Chrome extension which aids users in learning and analyzing shell commands found online. When looking for help with Unix based systems, many users search the internet for answers, and use commands found on online forums and Q\&A centers without the proper understanding of their function. This can result in the user unknowingly running malicious or insecure commands. In addition, running commands this way prevents users from learning how to write such commands themselves. Documentation for shell commands exists in \texttt{man} pages and in resources such as explainshell.com, but this would require the user to retype the command or copy and paste to another webpage. This barrier is often too large for people who look up many commands.
 
-ExplainShell for Chrome allieviates this problem by showing the user a popup window with a detailed explaination of commands found online. Utilizing information from explainshell.com, the extension will eliminate the need to copy and paste to another page. This project will provide a useful product and allow us to explore Chrome extension development as well as learn how to interact with other open source projects.
+ExplainShell for Chrome alleviates this problem by showing the user a popup window with a detailed explanation of commands found online. Utilizing information from explainshell.com, the extension will eliminate the need to copy and paste to another page. This project will provide a useful product and allow us to explore Chrome extension development as well as learn how to interact with other open source projects.
 
 \section{Literature Review}
 
@@ -116,7 +116,7 @@ ExplainShell for Chrome allieviates this problem by showing the user a popup win
 
 \texttt{man} pages are the form of documentation used to store information about Unix software, including commands. These pages are very comprehensive, containing very detailed information about the command, including its effect, options and input types. However, it is often difficult to determine which part of the page relates to your command, and difficult to discover new commands the user was unaware of.
 
-explainshell.com is a website which attempts to resolve this problem. Given a shell command, the website parses it into its component parts, and pulling up the apprioprate section of the \texttt{man} page for each part. It displays this information in a simple, graphical format for easy understanding. However, the site requires users to navigate away from their page and copy-paste the command to analyze.
+explainshell.com is a website which attempts to resolve this problem. Given a shell command, the website parses it into its component parts, and pulling up the appropriate section of the \texttt{man} page for each part. It displays this information in a simple, graphical format for easy understanding. However, the site requires users to navigate away from their page and copy-paste the command to analyze.
 
 \subsection{bashoneliners.com}
 
@@ -124,7 +124,7 @@ bashoneliners.com is a website where users can submit one line shell commands th
 
 \subsection{linuxcommand.org}
 
-linuxcommand.org is a website that provides an in-depth tutorial for readers to learn how to write shell commands. The site aims to give users enough knowledge that they can write any commands needed themselves. However, there are still some specialized commands not covered by the lessons. In addition, it is difficult to quickly look through the site to find the explaination of a specific command. 
+linuxcommand.org is a website that provides an in-depth tutorial for readers to learn how to write shell commands. The site aims to give users enough knowledge that they can write any commands needed themselves. However, there are still some specialized commands not covered by the lessons. In addition, it is difficult to quickly look through the site to find the explanation of a specific command.
 
 \subsection{tldp.org}
 
@@ -147,7 +147,7 @@ We will learn to use and familiarize with a lot of technologies in the process a
 \section{Approach}
 \subsection{Methodology}
 
-In this section, we will explain the various technologies that we we will be using to complete the project. Through our project, we will develop a Chrome extension and a back-end server that provides analytics about trending shell commands. We will also contribute to the current code base of the open source ExplainShell project. 
+In this section, we will explain the various technologies that we will be using to complete the project. Through our project, we will develop a Chrome extension and a back-end server that provides analytics about trending shell commands. We will also contribute to the current code base of the open source ExplainShell project. 
 
 For the Chrome extension, we will use Javascript and jQuery to scan and parse the webpage that user visits, to identify potential shell commands within a web page. We will then use AJAX to send requests to the ExplainShell API and receive documentations of identified commands. We will also use HTTP + CSS to layout a pop-up window that displays the documentation. 
 
@@ -163,7 +163,7 @@ We will first build a simple Chrome extension that allows user to look up the us
 We will refine our Chrome extension developed in Phase 1. Instead of asking the user to highlight the shell command that they want to look up, the Chrome extension will now automatically parse and search the web page to identify any shell commands. Upon identifying potential commands, the extension will turn the command into a clickable link, which will redirect the user to the usage documentation at the ExplainShell website.
 
 \par{\bf Phase 3}\\
-We will contribute to the code base of the ExplainShell project by adding an HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers / clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
+We will contribute to the code base of the ExplainShell project by adding an HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers/clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
 
 \par{\bf Phase 4}\\
 We will develop a back-end server that provides analytics that allow users to view trending searches and referral sites. These analytics will provide insight in which shell commands people take most interest in or are confused about.
