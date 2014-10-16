@@ -132,7 +132,7 @@ The website of The Linux Documentation Project, tldp.org, provides detailed free
 
 \section{Plan}
 
-Our goal is to develop a Chrome extension that helps users learn the usage of shell commands found online and avoid malicious shell commands. After the user installs the extension from the Chrome extension store, it will scan any web page that the user visits for shell commands in the background, and allow users to simply hover / click on unfamiliar shell commands to view a detailed explanation of the shell commands in a pop-up window. This extension will not only help users learn and familiarize with the usage of nearly 30,000 shell commands, but will also help users identify potentially destructive or malicious commands before executing them. 
+Our goal is to develop a Chrome extension that helps users learn the usage of shell commands found online and avoid malicious shell commands. After the user installs the extension from the Chrome extension store, it will scan any web page that the user visits for shell commands in the background, and allow users to simply hover / click on unfamiliar shell commands to view a detailed explanation of the shell commands in a pop-up window. This extension will not only help users learn and familiarize themselves with the usage of nearly 30,000 shell commands, but will also help users identify potentially destructive or malicious commands before executing them. 
 
 We will also create a back-end server to store and provide interesting analytics about trending shell commands, trending referring sites and other statistics. If time allows, we will also attempt to develop a more advanced web page parsing technique to identify shell commands in a web page, possibly using machine learning.
 
@@ -149,7 +149,7 @@ We will learn to use and familiarize with a lot of technologies in the process a
 
 In this section, we will explain the various technologies that we will be using to complete the project. Through our project, we will develop a Chrome extension and a back-end server that provides analytics about trending shell commands. We will also contribute to the current code base of the open source ExplainShell project. 
 
-For the Chrome extension, we will use Javascript and jQuery to scan and parse the webpage that user visits, to identify potential shell commands within a web page. We will then use AJAX to send requests to the ExplainShell API and receive documentations of identified commands. We will also use HTTP + CSS to layout a pop-up window that displays the documentation. 
+For the Chrome extension, we will use Javascript and jQuery to scan and parse the webpage that user visits, to identify potential shell commands within a web page. We will then use AJAX to send requests to the ExplainShell API and receive documentations of identified commands. We will also use HTML + CSS to layout a pop-up window that displays the documentation. 
 
 We will also create a back-end server with Node.js. The back-end server will store the history of shell commands that users look up using our extension, using a SQL database. The data will allow us to provide analytics and visualization about popular or trending searches.
 
@@ -163,7 +163,7 @@ We will first build a simple Chrome extension that allows user to look up the us
 We will refine our Chrome extension developed in Phase 1. Instead of asking the user to highlight the shell command that they want to look up, the Chrome extension will now automatically parse and search the web page to identify any shell commands. Upon identifying potential commands, the extension will turn the command into a clickable link, which will redirect the user to the usage documentation at the ExplainShell website.
 
 \par{\bf Phase 3}\\
-We will contribute to the code base of the ExplainShell project by adding an HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers/clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
+We will contribute to the code base of the ExplainShell project by adding a RESTful HTTP API, since this would also help us further improve our chrome extension. With the API, the Chrome extension may now display a pop-up window in the page, whenever the user hovers/clicks on the identified shell commands, whereas previously we always redirect the user to the documentation web page.
 
 \par{\bf Phase 4}\\
 We will develop a back-end server that provides analytics that allow users to view trending searches and referral sites. These analytics will provide insight in which shell commands people take most interest in or are confused about.
