@@ -8,12 +8,18 @@ This project is being developed by Jake Zimmerman, Justin Gallagher, Ted Li, and
 
 ## Directory Structure
 
-Right now the directory structure is very basic. 
-
+- The `lib/` directory contains the actual chrome extension.
+- The `ref/` directory contains some sample code relevant to creating our extension, convientenly downloaded so we don't have to keep redownloading it.
 - The `handout/` directory contains documents describing the requirements for various phases (mirrored here for the sake of convenience). PDFs are preferred to MS Office files.
 - The `docs/` directory contains planning documents, written assignments, and presentation slides.
 
-More directories will be added as there becomes more solid content to be managed.
+## Chrome Extension APIs Reference
+
+To create the actual Chrome extension, we're using the `contextMenus` API and the `tabs` API. The following links have been helpful:
+
+- [contextMenus reference](https://developer.chrome.com/extensions/contextMenus)
+- [contextMenus sample](https://developer.chrome.com/extensions/samples#search:contextmenus)
+- [tabs reference](https://developer.chrome.com/extensions/tabs)
 
 ## explainshell.com
 
