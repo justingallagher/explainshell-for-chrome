@@ -83,6 +83,8 @@ For this guide, you will need:
 \begin{enumerate}
 	\item A Internet connected Windows computer with Google Chrome installed.
 	\item A text editor in which you are proficient.
+	\item A Google account.
+	\item \$5 to pay Google's developer registration fee.
 \end{enumerate}
 
 \subsection{Goal}
@@ -101,7 +103,7 @@ This step outlines how to add the extension you wrote to your installation of Ch
 
 \begin{enumerate}
 	\item Open your Google Chrome browser and visit \texttt{chrome://extensions}.
-	\item At the top right of the page, ensure that the ``Developer Mode'' checkbox is checked, as shown in \emph{Figure \ref{fig:devmode}}. If it is not, click the box next to the text label to activate Developer Mode.
+	\item At the top right of the page, ensure that the ``Developer Mode'' checkbox is checked, as shown in \emph{Figure \ref{fig:devmode}}. If it is not, click the box next to the text label to activate Developer Mode.\\
 
 	\begin{figure}[htb]
 	\centering
@@ -109,7 +111,7 @@ This step outlines how to add the extension you wrote to your installation of Ch
 	\caption{Enabling Chrome developer mode\label{fig:devmode}}
 	\end{figure}
 
-	\item Press the ``Load unpacked extension...'' button and select the folder containing your \texttt{manifest.json} file, as shown in \emph{Figure \ref{fig:loadext}}. Press ``OK'' to load your extension.
+	\item Press the ``Load unpacked extension...'' button and select the folder containing your \texttt{manifest.json} file, as shown in \emph{Figure \ref{fig:loadext}}. Press ``OK'' to load your extension.\\
 
 	\begin{figure}[htb]
 	\centering
@@ -117,7 +119,7 @@ This step outlines how to add the extension you wrote to your installation of Ch
 	\caption{Adding your extension to Chrome\label{fig:loadext}}
 	\end{figure}
 
-	\item When your extension is properly loaded, you should see an entry for ``My Chrome Extension'' in the extensions list, as shown in \emph{Figure \ref{fig:loadedext}}.
+	\item When your extension is properly loaded, you should see an entry for ``My Chrome Extension'' in the extensions list, as shown in \emph{Figure \ref{fig:loadedext}}.\\
 
 	\begin{figure}[htb]
 	\centering
@@ -126,10 +128,52 @@ This step outlines how to add the extension you wrote to your installation of Ch
 	\end{figure}
 \end{enumerate}
 
+Now your extension has been loaded into the browser, and you should immediately see the extension you have written take effect.
+
 Proceed to the next step to learn how to upload your extension to the Chrome Web Store for others to download.
 
 \newpage
 
 \section{Uploading the Extension to the Chrome Web Store}
+
+This step shows you how to upload your app to the Chrome Web Store for others to download and use.
+
+\begin{enumerate}
+	\item Zip your extension directory. To do this in Windows, open Windows Explorer, right click on the directory, and choose ``Send to'', then click ``Compressed (zipped) folder'', as shown in \emph{Figure \ref{fig:zipext}}.\\
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/zipext.png}
+	\caption{Zipping a directory in Windows Explorer\label{fig:zipext}}
+	\end{figure}
+
+	\item Navigate to the Chrome Web Store Developer Dashboard at \\\texttt{https://chrome.google.com/webstore/developer/dashboard}, and sign in to your Google Account.
+
+	\item If this is your first time publishing an application through Google, you will need to pay Google's \$5 registration fee. A yellow banner will be displayed on the dashboard if you need to pay this fee, as in \emph{Figure \ref{fig:regfee}} - press the ``Pay this fee now'' button and follow Google's instructions to enable your developer account.\\
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/regfee.png}
+	\caption{Google developer registration fee notice\label{fig:regfee}}
+	\end{figure}
+
+	\item Click the ``Add New Item'' button on the dashboard. Here, you will be prompted to upload your extension's \texttt{.zip} file, created in substep 1. Click ``Choose file'', and select the \texttt{.zip} file, as shown in \emph{Figure \ref{fig:uploadext}}. Press the ``Upload'' button to complete the transaction.\\
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/uploadext.png}
+	\caption{Uploading your extension to Google\label{fig:uploadext}}
+	\end{figure}
+
+	\item You will now be redirected to a page where you can configure the store appearance of your extension. There are many options available on this page, but most are optional. Make sure you set the ``Category'' and ``Language'' fields of the form to appropriate values. Click ``Publish changes'' to publish your app to the Chrome store. It may take up to an hour for your extension to appear to others. When you are done, your extension will have a page in the Web Store as in \emph{Figure \ref{fig:publishedext}}.\\
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/publishedext.png}
+	\caption{Store page for a completed extension\label{fig:publishedext}}
+	\end{figure}
+\end{enumerate}
+
+Your extension will now be available for public download, and can be found in the Chrome Web Store's search.
 
 \end{document}
