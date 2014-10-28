@@ -81,7 +81,7 @@ Chrome extensions allow you to add features and functionality to Google's Chrome
 For this guide, you will need:
 
 \begin{enumerate}
-	\item A Internet connected computer with Google Chrome installed.
+	\item A Internet connected Windows computer with Google Chrome installed.
 	\item A text editor in which you are proficient.
 \end{enumerate}
 
@@ -92,5 +92,44 @@ By the end of this guide, you will have created a simple Chrome extension which 
 \subsection{Cautions and Warnings}
 
 An incorrectly written extension can cause undesired behavior resulting in an unstable browser. Uploading such an extension can cause it to be removed from the Chrome Web Store and your developer account to be banned. Remember to test your extension thoroughly before uploading!
+
+\newpage
+
+\section{Adding the Extension to Chrome}
+
+This step outlines how to add the extension you wrote to your installation of Chrome, and how to run the application for yourself.
+
+\begin{enumerate}
+	\item Open your Google Chrome browser and visit \texttt{chrome://extensions}.
+	\item At the top right of the page, ensure that the ``Developer Mode'' checkbox is checked, as shown in \emph{Figure \ref{fig:devmode}}. If it is not, click the box next to the text label to activate Developer Mode.
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/devmode.png}
+	\caption{Enabling Chrome developer mode\label{fig:devmode}}
+	\end{figure}
+
+	\item Press the ``Load unpacked extension...'' button and select the folder containing your \texttt{manifest.json} file, as shown in \emph{Figure \ref{fig:loadext}}. Press ``OK'' to load your extension.
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[height=0.5\textwidth]{figures/loadext.png}
+	\caption{Adding your extension to Chrome\label{fig:loadext}}
+	\end{figure}
+
+	\item When your extension is properly loaded, you should see an entry for ``My Chrome Extension'' in the extensions list, as shown in \emph{Figure \ref{fig:loadedext}}.
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/loadedext.png}
+	\caption{A successfully loaded extension\label{fig:loadedext}}
+	\end{figure}
+\end{enumerate}
+
+Proceed to the next step to learn how to upload your extension to the Chrome Web Store for others to download.
+
+\newpage
+
+\section{Uploading the Extension to the Chrome Web Store}
 
 \end{document}
