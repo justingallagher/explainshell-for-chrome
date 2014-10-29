@@ -11,6 +11,13 @@
 \usepackage{pdflscape}
 \usepackage{hyperref}
 
+\lstset{basicstyle=\ttfamily, 
+        breaklines=true,
+        columns=fullflexible, 
+        numbers=left, 
+        numbersep=10pt, 
+        numberstyle=\sffamily\footnotesize\color{gray}}
+
 % \usepackage{fontspec}
 % \setmainfont{Times New Roman}
 
@@ -29,7 +36,7 @@
 }
 
 \newcommand{\myname}{Justin Gallagher, Ted Li}
-\newcommand{\myandrew}{Group 20}
+\newcommand{\myandrew}{jgallagher@cmu.edu, wenxuanl@andrew.cmu.edu}
 \newcommand{\mytitle}{Instructions}
 \title{Creating a Simple Chrome Extension\\ \vspace*{.5em} \Large\mytitle}
 \date{}
@@ -70,7 +77,7 @@
 
 Chrome extensions allow you to add features and functionality to Google's Chrome browser without modifying source code. This guide will walk you through creating a simple extension and uploading it to the Chrome Web Store for the public to download.
 
-The tutorial has X steps and can be completed in approximately Y minutes.
+The tutorial has 5 steps and can be completed in approximately 15 minutes.
 
 \subsection{Motivation}
 
@@ -81,10 +88,12 @@ Chrome extensions allow you to add features and functionality to Google's Chrome
 For this guide, you will need:
 
 \begin{enumerate}
-	\item A Internet connected Windows computer with Google Chrome installed.
+	\item A Internet connected Windows / Mac computer with Google Chrome installed.
 	\item A text editor in which you are proficient.
 	\item A Google account.
 	\item \$5 to pay Google's developer registration fee.
+	\item A simple logo for your Chrome extension.
+	\item Elementary skills in HTML and JavaScript.
 \end{enumerate}
 
 \subsection{Goal}
@@ -97,13 +106,95 @@ An incorrectly written extension can cause undesired behavior resulting in an un
 
 \newpage
 
+\section{Understanding the Constituents of a Google Chrome Extension}
+
+This section covers the basic constituents that are required for any Google Chrome extension. Usually, Chrome extensions are packaged as a zipped archive of a folder. The archive consists of all the resources that a Chrome extension requires to run its functionalities. The files in the archive may include images, web pages or source code that the extension will find useful.
+
+\section{Creating a Chrome Extension}
+\subsection{Step 1: Create a Folder For Our Project}
+
+For this tutorial, we will be putting everything related to our extension under the \texttt{My Chrome Extension} folder on the Desktop. As the first step, create a new folder on the Desktop named \texttt{My Chrome Extension}.
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.3\textwidth]{figures/folder.png}
+	\caption{Creating the folder on the Desktop\label{fig:folder}}
+	\end{figure}
+
+\subsection{Step 2: Declaring the Manifest File}
+
+After creating a folder for our project, we'll need to create a manifest file named \texttt{manifest.json}. A manifest file can be viewed as a configuration file for any Chrome Extension that configures specific settings of our Chrome extension, such as icon, version number, extension name and description. At a high level, we'll use the manifest file to declare to Chrome its functionalities, and what permissions it requires in order to complete these functions.
+
+For this tutorial, we will name our Chrome extension `My Chrome extension', and we will also designate an icon for our Chrome extension. Feel free to replace the name, icon and description with your own.
+
+Open up any text editor and save the following code snippet to the folder we just created, and name the file \texttt{manifest.json}.
+
+\begin{lstlisting}[mathescape]
+{
+  "manifest_version": 2,
+  "name": "My Chrome extension",  // The name for our Chrome extension
+  "description": "This is a simple extension intended as a demonstration!",
+  "version": "1.0",  // The current version for our Chrome extension
+  "browser_action": { "default_icon": "icon.png", "default_popup": "popup.html" }
+}
+\end{lstlisting}
+
+After this step, our folder should look like this:
+
+	\begin{figure}[htb]
+	\centering
+	\vspace*{-2em}
+	\includegraphics[width=\textwidth]{figures/manifest.png}\vspace*{-2em}
+	\hspace*{-2.5em}\includegraphics[width=1.1\textwidth]{figures/saving.png}
+	\vspace*{-2em}
+	\caption{Creating the \texttt{manifest.json} file\label{fig:saving}}
+	\vspace*{1em}
+	\end{figure}
+
+\subsection{Step 3: Adding In the Resources For the Chrome Extension}
+
+By now, you probably have noticed that there were two files in the \texttt{manifest.json} file that we haven't yet created. Now, we should proceed to create the two resource files. They are called resource files because they are files that Google Chrome will eventually use to render our extension to users.
+
+For this tutorial, we will be using the following icon. You may choose any icon you like.
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.1\textwidth]{figures/icon128.png}
+	\end{figure}
+
+Save the icon into the folder named \texttt{icon.png}. 
+
+Next, create a file in the same folder named \texttt{popup.html} with the following content:
+\begin{lstlisting}[mathescape]
+<!doctype html>
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+  Hello World!
+  </body>
+</html>
+\end{lstlisting}
+
+Our folder should now look like this:
+
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/all.png}
+	\vspace*{-2.5em}
+	\caption{Adding the resource files\label{fig:all}}
+	\end{figure}
+
+Now that we have created the extension, let's import into the Google Chrome browser and give it a try!
+
 \section{Adding the Extension to Chrome}
 
 This step outlines how to add the extension you wrote to your installation of Chrome, and how to run the application for yourself.
 
 \begin{enumerate}
 	\item Open your Google Chrome browser and visit \texttt{chrome://extensions}.
-	\item At the top right of the page, ensure that the ``Developer Mode'' checkbox is checked, as shown in \emph{Figure \ref{fig:devmode}}. If it is not, click the box next to the text label to activate Developer Mode.\\
+	\item At the top right of the page, ensure that the ``Developer Mode'' checkbox is checked, as shown in \emph{Figure \ref{fig:devmode}}. If it is not, click the box next to the text label to activate Developer Mode.
 
 	\begin{figure}[htb]
 	\centering
@@ -111,7 +202,7 @@ This step outlines how to add the extension you wrote to your installation of Ch
 	\caption{Enabling Chrome developer mode\label{fig:devmode}}
 	\end{figure}
 
-	\item Press the ``Load unpacked extension...'' button and select the folder containing your \texttt{manifest.json} file, as shown in \emph{Figure \ref{fig:loadext}}. Press ``OK'' to load your extension.\\
+	\item Press the ``Load unpacked extension...'' button and select the folder containing your \texttt{manifest.json} file, as shown in \emph{Figure \ref{fig:loadext}}. Press ``OK'' to load your extension.
 
 	\begin{figure}[htb]
 	\centering
@@ -119,20 +210,31 @@ This step outlines how to add the extension you wrote to your installation of Ch
 	\caption{Adding your extension to Chrome\label{fig:loadext}}
 	\end{figure}
 
-	\item When your extension is properly loaded, you should see an entry for ``My Chrome Extension'' in the extensions list, as shown in \emph{Figure \ref{fig:loadedext}}.\\
+	\item When your extension is properly loaded, you should see an entry for ``My Chrome Extension'' in the extensions list, as shown in \emph{Figure \ref{fig:loadedext}}.
 
 	\begin{figure}[htb]
 	\centering
-	\includegraphics[width=1\textwidth]{figures/loadedext.png}
+	\vspace*{-1em}
+	\includegraphics[width=.9\textwidth]{figures/loadedext.png}
 	\caption{A successfully loaded extension\label{fig:loadedext}}
+	\vspace*{-1em}
 	\end{figure}
 \end{enumerate}
 
+\newpage
 Now your extension has been loaded into the browser, and you should immediately see the extension you have written take effect.
 
-Proceed to the next step to learn how to upload your extension to the Chrome Web Store for others to download.
+Simply open up a new browser window, and you should already see the icon of our extension available on the toolbar. If you click the icon, a small popup will appear that says ``Hello World!'', as shown in \emph{Figure \ref{fig:ext}}.
 
-\newpage
+	\begin{figure}[htb]
+	\centering
+	\vspace*{-1em}
+	\includegraphics[width=1\textwidth]{figures/ext.png}
+	\vspace*{-1em}
+	\caption{Our Chrome Extension in Action\label{fig:ext}}
+	\end{figure}
+
+Proceed to the next step to learn how to upload your extension to the Chrome Web Store for others to download.
 
 \section{Uploading the Extension to the Chrome Web Store}
 
@@ -175,5 +277,9 @@ This step shows you how to upload your app to the Chrome Web Store for others to
 \end{enumerate}
 
 Your extension will now be available for public download, and can be found in the Chrome Web Store's search.
+
+\section{Conclusion}
+
+Through this tutorial, you should have been able to successfully create a simple ``Hello World'' Chrome Extension, and have mastered the basics of importing the Chrome Extension into your web browser or upload to the Chrome Extension Store. We encourage you to create cool extensions and share with others us to use!
 
 \end{document}
