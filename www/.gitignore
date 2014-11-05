@@ -52,3 +52,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# MongoDB data folder
+data/
+
+# ctags
+tags
