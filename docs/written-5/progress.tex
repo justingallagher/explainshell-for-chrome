@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}  % Some math symbols
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+
+\renewcommand*{\familydefault}{\sfdefault}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\pagestyle{empty}
+
+\pagestyle{fancy}
+\fancypagestyle{firststyle}
+{
+   \lhead{\myname \\ \myandrew \\ \today \\ \vspace*{-.5em}}
+   \rhead{15-221 \\ Fall 2014 \\ Section A \\ \vspace*{-.5em}}
+   \setlength{\headsep}{50pt}
+}
+
+\fancypagestyle{zerostyle}
+{
+   \renewcommand{\headrulewidth}{0pt}
+}
+
+\newcommand{\myname}{Justin Gallagher, Ted Li, Jacob Zimmerman, Howard Chen}
+\newcommand{\myandrew}{Group 20}
+\newcommand{\mytitle}{Project Proposal}
+\title{ExplainShell for Chrome \\ \vspace*{.5em} \Large\mytitle}
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagenumbering{gobble}
+\author{~\\
+\normalsize {\bf Submitted to}\\
+\normalsize Thomas M. Keating\\
+\normalsize Assistant Teaching Professor\\
+\normalsize School of Computer Science\\
+\normalsize Carnegie Mellon University\vspace*{2em}\\
+\normalsize {\bf Prepared by}\\
+\normalsize Justin Gallagher\\
+\normalsize Ted Li\\
+\normalsize Jacob Zimmerman\\
+\normalsize Howard Chen\vspace*{2em}\\
+\normalsize School of Computer Science\\
+\normalsize Carnegie Mellon University\\
+\normalsize \today}
+
+\clearpage\maketitle
+\thispagestyle{firststyle}
+
+\newpage
+\lhead{\myname}
+\rhead{\thepage}
+\setlength{\headsep}{25pt}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setlength{\voffset}{-50pt}
+\setlength{\headsep}{25pt}
+
+\section{Overview}
+
+\subsection{Report}
+\subsection{Project}
+
+\section{Literature Review}
+
+\section{Progress}
+
+\subsection{General Assessment}
+\subsection{Status}
+\subsection{Projections}
+
+\section{Recommendations}
+
+\section{Discussion}
+
+\end{document}
