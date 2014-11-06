@@ -9,8 +9,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/explainshell-trends');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var page_routes = require('./routes/index');
+var data_routes = require('./routes/data');
 
 var app = express();
 
@@ -33,8 +33,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', page_routes);
+app.use('/api/', data_routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
