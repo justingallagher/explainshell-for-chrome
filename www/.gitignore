@@ -57,3 +57,7 @@ data/
 
 # ctags
 tags
+
+# Compass
+Gemfile.lock
+.sass-cache
