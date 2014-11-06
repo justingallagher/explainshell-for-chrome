@@ -32,6 +32,34 @@ I then edited the `"name"` field in `package.json` to something more reasonable.
 
 __For those who want to get set up to be able to run the app__: you will only have to run the last two commands.
 
+## Setting up MongoDB
+
+There's a walkthrough of getting Mongo set up in the [tutorial][tutorial] I mentioned earlier, but here's a quick walkthrough:
+
+```bash
+$ brew install mongodb # substitute your package manager here
+# Note: If you don't have a package manager (coughwindowscough) then download it from online
+
+# From the www/ directory: start the mongo daemon
+$ mongod --dbpath data
+```
+
+## Setting up Compass
+
+__This is really important__: we're using Compass for CSS preprocessing. Don't edit CSS files manually!! Find the file that is used to generate the corresponding CSS file and edit that file instead.
+
+```bash
+# install Compass
+$ brew install compass # Again, insert your package manager here, or download from online
+
+# From www/ directory:
+# Compile the stylesheets once
+$ compass compile
+
+# Compile the stylesheets continuously as you change them
+$ compass watch
+```
+
 ## Chrome Extension APIs Reference
 
 To create the actual Chrome extension, we're using the `contextMenus` API and the `tabs` API. The following links have been helpful:
