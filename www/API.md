@@ -7,6 +7,7 @@
 ```javascript
 {
   url: <string>         // full URL where extension got a click
+  title: <string>       // title of the page where clicked
 }
 ```
 
@@ -22,6 +23,7 @@
 ```javascript
 [
   {
+    "title": <string>     // Title on page
     "url": <string>,      // full URL where extension got a click
     "timestamp": <Date>,  // JavaScript Date() object
     "domain": <string>    // Domain name from URL

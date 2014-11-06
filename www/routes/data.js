@@ -42,13 +42,14 @@ parseUri.options = {
 // ----- POST /api/click/ : data endpoint for new click in the extension ------
 router.post('/click/', function(req, res) {
   // Initialize database
-  var clicks = req.db.get("clicks");
+  var clicks = req.db.get("usercollection");
 
   // Initialize click data from JSON POST body
   var click = {};
   click.url = req.body.url;
+  click.title = req.body.title;
   click.domain = parseUri(click.url).host;
-  click.timestamp = Date();
+  click.timestamp = new Date();
 
   console.log(JSON.stringify(click, null, 2));
 
