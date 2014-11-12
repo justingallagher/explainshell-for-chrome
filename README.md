@@ -1,6 +1,6 @@
 # ExplainShell for Chrome
 
-A chrome extension which automates looking up shell commands on [http://explainshell.com/](http://explainshell.com). 
+A chrome extension which automates looking up shell commands on [http://explainshell.com/](http://explainshell.com).
 
 ## Authors
 
