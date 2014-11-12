@@ -2,3 +2,10 @@
 body {
   padding-top: 70px;
 }
+
+/* line 7, ../sass/style.scss */
+.dataTable td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
