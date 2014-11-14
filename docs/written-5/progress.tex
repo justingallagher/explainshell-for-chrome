@@ -9,7 +9,16 @@
 \usepackage{listings}
 \usepackage{fancyhdr}
 \usepackage{pdflscape}
-\usepackage{hyperref}
+\usepackage[colorlinks = true,
+             linkcolor = blue,
+             urlcolor  = blue,
+             citecolor = blue,
+           anchorcolor = blue]{hyperref}
+
+% usage: \fnurl{URL}{link text}
+\newcommand\fnurl[2]{%
+\href{#1}{#2}\footnote{\url{#1}}%
+}
 
 % \usepackage{fontspec}
 % \setmainfont{Times New Roman}
@@ -122,7 +131,18 @@ have been the most crucial to our current progress.
 
 \subsection{Setting Up a Node.js Stack with Express \& MongoDB}
 
-\url{http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/}
+Setting up the backend ExplainShell Trends site turned out to be relatively
+painless, due to the comprehensiveness of
+\fnurl{http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/}{this
+tutorial}. It went through the process of getting Node.js installed and getting
+a simple app up and running. From here, we were able to adapt the site to our
+needs, including setting up boilerplate pages for the landing page and about
+page.
+
+This tutorial also covered the process of setting up a local MongoDB instance,
+which turned out to be incredibly straightforward. Using MongoDB, we were able
+to begin populating the database with some sample data points for the purpose of
+debugging.
 
 \section{Progress}
 
