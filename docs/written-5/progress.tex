@@ -55,7 +55,10 @@
 \normalsize Howard Chen\vspace*{2em}\\
 \normalsize School of Computer Science\\
 \normalsize Carnegie Mellon University\\
-\normalsize \today}
+\normalsize \today\\
+\normalsize (Professor Keating granted us a two-day extension)
+% ^ Is this necessary?
+}
 
 \clearpage\maketitle
 \thispagestyle{firststyle}
@@ -64,6 +67,7 @@
 \lhead{\myname}
 \rhead{\thepage}
 \setlength{\headsep}{25pt}
+\addtolength{\textheight}{-30pt}
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
@@ -112,8 +116,9 @@ process, mostly relating to the actual implementation of Chrome extensions and
 web apps in Node.js. Of the sites we've visited, those that we document here
 have been the most crucial to our current progress.
 
-\subsection{TODO -- Chrome extension reference}
-% TODO: Ted: fill in example doc for the Chrome extension
+\subsection{Chrome extension reference}
+% TODO: Maybe Chrome extension reference cannot be counted as an additional 
+% reference?
 
 \subsection{Setting Up a Node.js Stack with Express \& MongoDB}
 
@@ -121,9 +126,84 @@ have been the most crucial to our current progress.
 
 \section{Progress}
 
+We now present a general assessment of our progress so far. We will
+also propose potential changes to our original schedule.
+
 \subsection{General Assessment}
+Up until this week, we have completed the development of Phase 1, 2, and 4.
+So far, we have built a Chrome extension that parses and searches any web page
+to identify any shell commands. As the extension finds any potential
+commands using a set of heuristics, it will turn the original command text 
+into a clickable link, which will redirect the user to the corresponding
+usage documentation at the ExplainShell website.
+
+We have also completed the development of a back-end server that tracks
+the commands that users search for using our extension. The server compiles
+a database of clicks, which we will use to present various analytics, 
+including most recently visited commands, trending commands and top referring
+sites.
+% TODO: Jake -- add in more details about the back-end development if
+% you feel like it.
+
+The next step is to complete Phase 3, during which we will integrate the 
+front-end interface with the back-end server. To do this, we will likely need
+to contribute to the existing ExplainShell code base to add in relevant APIs.
+
 \subsection{Status}
+
+Below is a general list of tasks that we have completed so far. 
+Note that the items listed below correspond to our original Gantt chart we
+included in our initial proposal.
+\begin{itemize}
+  \item Create initial Chrome extension
+  \item Test initial Chrome extension
+  \item Parse page, add in external link
+  \item Create in-page popup on hover (partially completed, see below 
+  for details)
+  \item Setup basic analytics / trends site
+  \item Add analytics support to back-end 
+  % TODO: Jake -- Was this done?
+\end{itemize}
+Note that we have only partially completed the development of the in-page
+popup. Our original proposal was to create a custom-styled popup to display
+relevant information. This however would require us to first contribute to the
+ExplainShell API, since we need to add in relevant API that allows us to
+retrieve relevant reference documents from ExplainShell through web requests.
+Therefore, the development of the in-page popup cannot be fully completed
+before the ExplainShell API is available.
+
+Therefore as of now, we have to temporarily compromise with an in-page popup 
+that uses an \texttt{iframe} web element to display the reference. This falls
+short to our original proposal, since an \texttt{iframe} web element does not
+allow us to customize the look and feel of the popup, nor would usually suffer
+from a slower loading time.
+
+As a reference of the work we have completed so far, please refer to the link
+ below for a look at our Github repository.
+(\url{https://github.com/justingallagher/explainshell-for-chrome})
+% I'll push the part of my work to Git ASAP, after I get the nasty bug out
+% of the way. Ugh!
+
 \subsection{Projections}
+Our project is slightly falling behind. This is partly due to the fact that
+the time cycle of contributing to the ExplainShell open-source took longer 
+than we thought. It requires the approval of our pull request by
+ExplainShell code reviewers and the
+integration of our code into the ExplainShell code base. Since part of our
+project is dependent upon the integration of our code into the ExplainShell
+code base, we may have to make a few adjustments to our original schedule
+to deliver our final product on time.
+
+To this end, we will need to make some adjustments to our original plan. Particularly, if we cannot contribute to the ExplainShell code base by our
+project timeline, we may need to compromise with our existing \texttt{iframe}
+solution for the in-page popup, instead of using a custom-styled popup as
+proposed originally.
+
+Our next major step would be to integrate the back-end logic with the
+front-end. After the integration, our back-end server would be able to
+track what users are searching for and provide relevant analytics. This also
+would be the final portion of our project. We expect it to take one to two
+weeks to complete.
 
 \section{Recommendations}
 
