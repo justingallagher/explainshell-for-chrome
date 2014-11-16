@@ -12,16 +12,11 @@
               render: function renderArticle(title, type, row, meta) {
                 // Substring the title and make it clickable
                 var html = '<a target="_blank" href="' + row.url.substring(0) + '">';
-                //if (title.length > 50) {
-                //  html += title.substring(0, 47) + ' ...';
-                //}
-                //else {
                   html += title;
-                //}
                 html += '</a>';
                 return html;
               },
-              width: '25%'
+              width: '30%'
             },
             {
               title: 'Command',
@@ -30,31 +25,21 @@
                 var url = "http://explainshell.com/explain?cmd=" +
                   encodeURIComponent(command);
                 var html = '<a target="blank" href="' + url + '">'
-                //if (command.length > 50) {
-                //  html += command.substring(0, 47) + ' ...';
-                //}
-                //else {
                   html += command;
-                //}
                 return html;
               },
-              width: '40%'
+              width: '30%'
             },
             {
               title: 'Site',
               data: 'domain',
               render: function renderArticle(domain, type, row, meta) {
                 var html = '<a target="_blank" href="http://' + domain + '">';
-                //if (domain.length > 30) {
-                //  html += domain.substring(0, 27) + ' ...';
-                //}
-                //else {
                   html += domain;
-                //}
                 html += '</a>';
                 return html;
               },
-              width: '20%'
+              width: '15%'
             },
             {
               title: 'When',

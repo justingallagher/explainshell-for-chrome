@@ -4,6 +4,10 @@ body {
   padding-top: 70px;
 }
 
+#datatable {
+  table-layout: fixed;
+}
+
 .dataTable td {
   overflow: hidden;
   white-space: nowrap;
