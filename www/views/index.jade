@@ -24,8 +24,22 @@ block content
     h1.text-center ExplainShell Trends
     p.text-center.lead Hello, world!
 
-  .container
-    table.table.table-striped#datatable
+  .container.datatables(role="tabpanel")
+    //- Controls
+    ul.nav.nav-tabs(role="tablist")
+      li.active(role="presentation")
+        a#recents-tab(href="#recents", aria-controls="recents", role="tab", data-toggle="tab") Recents
+      li(role="presentation")
+        a#top-sites-tab(href="#top-sites", aria-controls="top-sites", role="tab", data-toggle="tab") Top Sites
+      li(role="presentation")
+        a#top-articles-tab(href="#top-articles", aria-controls="top-articles", role="tab", data-toggle="tab") Top Articles
+    .tab-content
+      .tab-pane.active#recents
+        table.table.table-striped.mydatatable#recents-datatable
+      .tab-pane#top-sites
+        table.table.table-striped.mydatatable#top-sites-datatable
+      .tab-pane#top-articles
+        table.table.table-striped.mydatatable#top-articles-datatable
 
 block scripts
   script(src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js")

@@ -4,11 +4,16 @@ body {
 }
 
 /* line 7, ../sass/style.scss */
-#datatable {
+.mydatatable {
   table-layout: fixed;
 }
 
 /* line 11, ../sass/style.scss */
+.tab-content {
+  margin-top: 20px;
+}
+
+/* line 15, ../sass/style.scss */
 .dataTable td {
   overflow: hidden;
   white-space: nowrap;

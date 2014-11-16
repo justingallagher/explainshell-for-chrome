@@ -4,8 +4,12 @@ body {
   padding-top: 70px;
 }
 
-#datatable {
+.mydatatable {
   table-layout: fixed;
+}
+
+.tab-content {
+  margin-top: 20px;
 }
 
 .dataTable td {
