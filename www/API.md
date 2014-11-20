@@ -8,6 +8,7 @@
 {
   url: <string>         // full URL where extension got a click
   title: <string>       // title of the page where clicked
+  command: <string>     // command that was selected/clicked
 }
 ```
 

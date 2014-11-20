@@ -1,0 +1,5 @@
+{
+  "title": "Homebrew - the missing package manager",
+  "url": "http://brew.sh",
+  "command": "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+}
