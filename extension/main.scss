@@ -1,0 +1,46 @@
+html {
+  min-width: 320px;
+}
+
+body {
+  background-color: #f8f8f8;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  color: #666;
+  padding: 20px 25px 15px 25px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    color: #444;
+  }
+
+  .form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    label {
+      margin-right: 20px;
+
+      input[type='checkbox'] {
+        margin-top: 3px;
+        margin-right: 5px;
+        vertical-align: top;
+      }
+
+      input[type='radio'] {
+        margin-top: 1px;
+        margin-right: 5px;
+        vertical-align: top;
+      }
+    }
+  }
+}
