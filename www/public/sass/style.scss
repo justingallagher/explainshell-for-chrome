@@ -3,3 +3,17 @@
 body {
   padding-top: 70px;
 }
+
+.mydatatable {
+  table-layout: fixed;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.dataTable td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

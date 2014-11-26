@@ -1,5 +1,8 @@
 extends boilerplate
 
+block head
+  link(href="//cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.css", rel="stylesheet")
+
 block content
   .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
     .container
@@ -21,15 +24,25 @@ block content
     h1.text-center ExplainShell Trends
     p.text-center.lead Hello, world!
 
-  .container
-    table.table.table-striped
-      thead
-        tr
-          th Article
-          th Site
-          th Time
-      tbody.data-list
+  .container.datatables(role="tabpanel")
+    //- Controls
+    ul.nav.nav-tabs(role="tablist")
+      li.active(role="presentation")
+        a#recents-tab(href="#recents", aria-controls="recents", role="tab", data-toggle="tab") Recents
+      li(role="presentation")
+        a#top-sites-tab(href="#top-sites", aria-controls="top-sites", role="tab", data-toggle="tab") Top Sites
+      li(role="presentation")
+        a#top-articles-tab(href="#top-articles", aria-controls="top-articles", role="tab", data-toggle="tab") Top Articles
+    .tab-content
+      .tab-pane.active#recents
+        table.table.table-striped.mydatatable#recents-datatable
+      .tab-pane#top-sites
+        table.table.table-striped.mydatatable#top-sites-datatable
+      .tab-pane#top-articles
+        table.table.table-striped.mydatatable#top-articles-datatable
 
 block scripts
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js")
+  script(src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js")
+  script(src="//cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js")
   script(src="/js/index.js")

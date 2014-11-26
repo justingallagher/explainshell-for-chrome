@@ -48,6 +48,7 @@ router.post('/click/', function(req, res) {
   var click = {};
   click.url = req.body.url;
   click.title = req.body.title;
+  click.command = req.body.command;
   click.domain = parseUri(click.url).host;
   click.timestamp = new Date();
 
