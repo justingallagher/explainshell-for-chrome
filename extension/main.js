@@ -1,3 +1,5 @@
+var cnt = 0;
+
 /**
  * Checks whether the given value is contained in the array.
  */
@@ -13,20 +15,27 @@ function contains(array, value)
  * Return the corresponding URL of the doc page of a command 
  * on the ExplainShell website.
  */
-function wrapCommand(cmd)
+function wrapCommand(inject_type, cmd)
 {
   if (cmd.length === 0) return cmd;
-  var inject_type = 0;
+  var ans = "";
 
   if (inject_type == 0) {
     var url = "http://explainshell.com/explain?cmd=" + encodeURIComponent(cmd);
     var html = "<a target=\"_blank\" href=\"" + url + "\">" + cmd + "</a>";
-    return html;
+    ans = html;
   } else if (inject_type == 1) {
-    var html = "<span class=\"explain_shell_cmd\">" + cmd + "</span>";
-    return html;
+    var html = "<span id=\"explain_shell_cmd_" + cnt.toString()
+    + "\" data-toggle=\"popover\" rel=\"popover\" class=\"explain_shell_cmd\">" 
+    + cmd + "</span>";
+    
+    ++cnt;
+    ans = html;
+  } else {
+    ans = cmd;
   }
-  return cmd;
+
+  return ans;
 }
 
 /**
@@ -71,7 +80,7 @@ function codeEnvIsShell($codeEnv)
  * Inject a tags / hover to code environments that are 
  * considered to contain bash commands.
  */
-function injectCodeEnvs()
+function injectCodeEnvs(inject_type)
 {
   var $codeEnvs = $("code");
   $codeEnvs.each(function(index) {
@@ -98,13 +107,14 @@ function injectCodeEnvs()
           rawCommand[1] === " ") {
           rawCommand = rawCommand.substring(2, rawCommand.length);
           injectHTML += 
-            codeText.replace(rawCommand, wrapCommand(rawCommand)) + "\n";
+            codeText.replace(rawCommand, wrapCommand(inject_type, rawCommand)) 
+              + "\n";
         } else {
           injectHTML += codeText + "\n";
         }
       } else {
         injectHTML += 
-          codeText.replace(codeText, wrapCommand(codeText)) + "\n";
+          codeText.replace(codeText, wrapCommand(inject_type, codeText)) + "\n";
       }
     };
     
@@ -112,13 +122,50 @@ function injectCodeEnvs()
   });
 }
 
-$(document).ready(function() {
-  injectCodeEnvs();
-  var drop;
-  drop = new Drop({
-    target: document.querySelector('.explain_shell_cmd'),
-    content: 'Welcome to the future!',
-    position: 'bottom',
-    openOn: 'hover'
+function setupPopOver(inject_type)
+{
+  if (inject_type !== 1) return;
+
+  $.each($('[rel="popover"]'), function(index, value) {
+    var $env = $(value);
+    var url = "http://explainshell.com/explain?cmd=" + 
+      encodeURIComponent($env.text());
+    var height = 500;
+    var width = 1000;
+    var ctnt = 
+      '<iframe frameborder="0" height="' + height.toString() +
+      '" width="' + width.toString() + 
+      '" src="' + url + '"></iframe>';
+    var env_id = "#" + $env.prop('id');
+    $env.popover({
+      title: 'Code explanation on ExplainShell', 
+      content: ctnt, 
+      html: true,
+      placement: 'auto bottom',
+      container: 'body'
+    }).on("show.bs.popover", function() { 
+      $(this).data("bs.popover").tip().css("max-width", "1050px"); 
+    });
   });
-})
+
+  $('body').on('click', function (e) {
+    $('[data-toggle="popover"]').each(function () {
+      //the 'is' for buttons that trigger popups
+      //the 'has' for icons within a button that triggers a popup
+      if (!$(this).is(e.target) && 
+        $(this).has(e.target).length === 0 && 
+        $('.popover').has(e.target).length === 0) {
+        $(this).popover('hide');
+      }
+    });
+  });
+}
+
+$(document).ready(function() {
+  chrome.storage.sync.get(default_settings, function(items) {
+    if (items[EXPLAIN_SHELL_ENABLE] === true) {
+      injectCodeEnvs(items[EXPLAIN_SHELL_INJECT_TYPE]);
+      setupPopOver(items[EXPLAIN_SHELL_INJECT_TYPE]);
+    }
+  });    
+});

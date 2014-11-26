@@ -5,8 +5,8 @@
   "permissions": ["contextMenus", "tabs", "storage"],
   "content_scripts": [{
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["jquery.js", "tether.min.js", "drop.js", "globals.js", "main.js"],
-      "css": ["inject.css"]
+      "js": ["jquery.js", "bootstrap.min.js", "globals.js", "main.js"],
+      "css": ["bootstrap.min.css", "inject.css"]
     }],
   "icons": {
     "16":  "icon16.png",
