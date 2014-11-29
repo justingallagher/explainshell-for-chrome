@@ -12,6 +12,22 @@ function contains(array, value)
 }
 
 /**
+ * Sends a log to the trends website.
+ */
+function sendLog(url, title, command) {
+  // Send json to server
+  var tosend = { 'url': url,
+                 'title': title,
+                 'command': command };
+
+  var xhr = new XMLHttpRequest();
+  var target = TRENDS_SITE_ROOT + "/api/click/";
+  xhr.open("POST", target, true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.send(JSON.stringify(tosend));
+}
+
+/**
  * Return the corresponding URL of the doc page of a command
  * on the ExplainShell website.
  */
@@ -144,16 +160,8 @@ function setupPopOver(inject_type)
       placement: 'auto bottom',
       container: 'body'
     }).on("show.bs.popover", function() {
-      // Send json to server
-      var tosend = { 'url': window.location.href,
-                     'title': window.document.title,
-                     'command': $env.text() };
-
-      var xhr = new XMLHttpRequest();
-      var target = "http://localhost:3000/api/click/";
-      xhr.open("POST", target, true);
-      xhr.setRequestHeader("Content-type", "application/json");
-      xhr.send(JSON.stringify(tosend));
+      // Send data
+      sendLog(window.location.href, window.document.title, $env.text());
 
       // Open popup
       $(this).data("bs.popover").tip().css("max-width", "1050px");
