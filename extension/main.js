@@ -38,7 +38,7 @@ function wrapCommand(inject_type, cmd)
 
   if (inject_type == 0) {
     var url = "http://explainshell.com/explain?cmd=" + encodeURIComponent(cmd);
-    var html = "<a target=\"_blank\" href=\"" + url + "\">" + cmd + "</a>";
+    var html = "<a class=\"explainshell info_link\" target=\"_blank\" href=\"" + url + "\">" + cmd + "</a>";
     ans = html;
   } else if (inject_type == 1) {
     var html = "<span id=\"explain_shell_cmd_" + cnt.toString()
@@ -138,54 +138,63 @@ function injectCodeEnvs(inject_type)
   });
 }
 
-function setupPopOver(inject_type)
+/**
+ * Setup click effects for injected html.
+ */
+function setupClick(inject_type)
 {
-  if (inject_type !== 1) return;
-
-  $.each($('[rel="popover"]'), function(index, value) {
-    var $env = $(value);
-    var url = "http://explainshell.com/explain?cmd=" +
-      encodeURIComponent($env.text());
-    var height = 500;
-    var width = 1000;
-    var ctnt =
-      '<iframe frameborder="0" height="' + height.toString() +
-      '" width="' + width.toString() +
-      '" src="' + url + '"></iframe>';
-    var env_id = "#" + $env.prop('id');
-    $env.popover({
-      title: 'Code explanation on ExplainShell',
-      content: ctnt,
-      html: true,
-      placement: 'auto bottom',
-      container: 'body'
-    }).on("show.bs.popover", function() {
-      // Send data
-      sendLog(window.location.href, window.document.title, $env.text());
-
-      // Open popup
-      $(this).data("bs.popover").tip().css("max-width", "1050px");
+  if (inject_type == 0) {
+    // Link type
+    $(".explainshell").click(function () {
+        sendLog(window.location.href, window.document.title, $(this).text());
     });
-  });
+  } else if (inject_type == 1) {
+    // Popup type
+    $.each($('[rel="popover"]'), function(index, value) {
+      var $env = $(value);
+      var url = "http://explainshell.com/explain?cmd=" +
+        encodeURIComponent($env.text());
+      var height = 500;
+      var width = 1000;
+      var ctnt =
+        '<iframe frameborder="0" height="' + height.toString() +
+        '" width="' + width.toString() +
+        '" src="' + url + '"></iframe>';
+      var env_id = "#" + $env.prop('id');
+      $env.popover({
+        title: 'Code explanation on ExplainShell',
+        content: ctnt,
+        html: true,
+        placement: 'auto bottom',
+        container: 'body'
+      }).on("show.bs.popover", function() {
+        // Send data
+        sendLog(window.location.href, window.document.title, $env.text());
 
-  $('body').on('click', function (e) {
-    $('[data-toggle="popover"]').each(function () {
-      //the 'is' for buttons that trigger popups
-      //the 'has' for icons within a button that triggers a popup
-      if (!$(this).is(e.target) &&
-        $(this).has(e.target).length === 0 &&
-        $('.popover').has(e.target).length === 0) {
-        $(this).popover('hide');
-      }
+        // Open popup
+        $(this).data("bs.popover").tip().css("max-width", "1050px");
+      });
     });
-  });
+
+    $('body').on('click', function (e) {
+      $('[data-toggle="popover"]').each(function () {
+        //the 'is' for buttons that trigger popups
+        //the 'has' for icons within a button that triggers a popup
+        if (!$(this).is(e.target) &&
+          $(this).has(e.target).length === 0 &&
+          $('.popover').has(e.target).length === 0) {
+          $(this).popover('hide');
+        }
+      });
+    });
+  }
 }
 
 $(document).ready(function() {
   chrome.storage.sync.get(default_settings, function(items) {
     if (items[EXPLAIN_SHELL_ENABLE] === true) {
       injectCodeEnvs(items[EXPLAIN_SHELL_INJECT_TYPE]);
-      setupPopOver(items[EXPLAIN_SHELL_INJECT_TYPE]);
+      setupClick(items[EXPLAIN_SHELL_INJECT_TYPE]);
     }
   });
 });
