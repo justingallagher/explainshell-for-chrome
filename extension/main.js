@@ -6,13 +6,13 @@ var cnt = 0;
 function contains(array, value)
 {
   for (var i = array.length - 1; i >= 0; i--)
-    if (array[i] === value) 
+    if (array[i] === value)
       return true;
   return false;
 }
 
 /**
- * Return the corresponding URL of the doc page of a command 
+ * Return the corresponding URL of the doc page of a command
  * on the ExplainShell website.
  */
 function wrapCommand(inject_type, cmd)
@@ -26,9 +26,9 @@ function wrapCommand(inject_type, cmd)
     ans = html;
   } else if (inject_type == 1) {
     var html = "<span id=\"explain_shell_cmd_" + cnt.toString()
-    + "\" data-toggle=\"popover\" rel=\"popover\" class=\"explain_shell_cmd\">" 
+    + "\" data-toggle=\"popover\" rel=\"popover\" class=\"explain_shell_cmd\">"
     + cmd + "</span>";
-    
+
     ++cnt;
     ans = html;
   } else {
@@ -77,7 +77,7 @@ function codeEnvIsShell($codeEnv)
 }
 
 /**
- * Inject a tags / hover to code environments that are 
+ * Inject a tags / hover to code environments that are
  * considered to contain bash commands.
  */
 function injectCodeEnvs(inject_type)
@@ -85,10 +85,10 @@ function injectCodeEnvs(inject_type)
   var $codeEnvs = $("code");
   $codeEnvs.each(function(index) {
     var isShellEnv = codeEnvIsShell($(this));
-    // If current code block is not considered a bash command env, 
+    // If current code block is not considered a bash command env,
     // then we don't do anything and return directly.
-    if (isShellEnv.length === 0) return; 
-      
+    if (isShellEnv.length === 0) return;
+
     // We first get rid of syntax highlighting, since this will
     // break our processing,
     $(this).html($(this).text());
@@ -106,18 +106,18 @@ function injectCodeEnvs(inject_type)
           rawCommand[0] === "$" &&
           rawCommand[1] === " ") {
           rawCommand = rawCommand.substring(2, rawCommand.length);
-          injectHTML += 
-            codeText.replace(rawCommand, wrapCommand(inject_type, rawCommand)) 
+          injectHTML +=
+            codeText.replace(rawCommand, wrapCommand(inject_type, rawCommand))
               + "\n";
         } else {
           injectHTML += codeText + "\n";
         }
       } else {
-        injectHTML += 
+        injectHTML +=
           codeText.replace(codeText, wrapCommand(inject_type, codeText)) + "\n";
       }
     };
-    
+
     $(this).html(injectHTML);
   });
 }
@@ -128,23 +128,35 @@ function setupPopOver(inject_type)
 
   $.each($('[rel="popover"]'), function(index, value) {
     var $env = $(value);
-    var url = "http://explainshell.com/explain?cmd=" + 
+    var url = "http://explainshell.com/explain?cmd=" +
       encodeURIComponent($env.text());
     var height = 500;
     var width = 1000;
-    var ctnt = 
+    var ctnt =
       '<iframe frameborder="0" height="' + height.toString() +
-      '" width="' + width.toString() + 
+      '" width="' + width.toString() +
       '" src="' + url + '"></iframe>';
     var env_id = "#" + $env.prop('id');
     $env.popover({
-      title: 'Code explanation on ExplainShell', 
-      content: ctnt, 
+      title: 'Code explanation on ExplainShell',
+      content: ctnt,
       html: true,
       placement: 'auto bottom',
       container: 'body'
-    }).on("show.bs.popover", function() { 
-      $(this).data("bs.popover").tip().css("max-width", "1050px"); 
+    }).on("show.bs.popover", function() {
+      // Send json to server
+      var tosend = { 'url': window.location.href,
+                     'title': window.document.title,
+                     'command': $env.text() };
+
+      var xhr = new XMLHttpRequest();
+      var target = "http://localhost:3000/api/click/";
+      xhr.open("POST", target, true);
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.send(JSON.stringify(tosend));
+
+      // Open popup
+      $(this).data("bs.popover").tip().css("max-width", "1050px");
     });
   });
 
@@ -152,8 +164,8 @@ function setupPopOver(inject_type)
     $('[data-toggle="popover"]').each(function () {
       //the 'is' for buttons that trigger popups
       //the 'has' for icons within a button that triggers a popup
-      if (!$(this).is(e.target) && 
-        $(this).has(e.target).length === 0 && 
+      if (!$(this).is(e.target) &&
+        $(this).has(e.target).length === 0 &&
         $('.popover').has(e.target).length === 0) {
         $(this).popover('hide');
       }
@@ -167,5 +179,5 @@ $(document).ready(function() {
       injectCodeEnvs(items[EXPLAIN_SHELL_INJECT_TYPE]);
       setupPopOver(items[EXPLAIN_SHELL_INJECT_TYPE]);
     }
-  });    
+  });
 });
