@@ -18,9 +18,12 @@ This project is being developed by Jake Zimmerman, Justin Gallagher, Ted Li, and
 
 - [Install Node.js][nodejs] from that link or from your package manager
 - [Install MongoDB][mongodb] from that link or from your package manager
+- [Install Ruby][ruby] from that link or from your package manager
 - `cd www`
-- `mkdir data`
+- `gem install bundler`
+- `bundler install`
 - `npm install`
+- `mkdir data`
 - `mongod --dbpath data/` (start the MongoDB daemon)
 - `npm start` (start the Node.js web server)
 - Head to <http://localhost:3000> to see the site!
@@ -90,4 +93,5 @@ MIT License. See LICENSE.
 
 [nodejs]: http://nodejs.org/download/
 [mongodb]: https://www.mongodb.org/downloads
+[ruby]: https://www.ruby-lang.org/
 [tutorial]: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
