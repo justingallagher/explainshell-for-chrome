@@ -1,0 +1,38 @@
+Hi everyone, my name is Ted. Today I have Justin with me to present our project -- ExplainShell for Chrome. As you can see, our teammates are Justin, Ted, Jacob and Howard. We have been working on this project for the past few months, and today we have something exciting to show you guys.
+
+Ok, let's get started! Here is a list of what we are going to cover today. I'll be discussing items 1 through 5 and Justin will handle the rest.
+
+First off, project overview. Our project mainly consists of two parts. The first part is a -->. The second part is -->. 
+
+So what's our rationale behind this entire project? A huge problem is that many starter programmers when they go online and search for bash commands, they often blindly execute those commands, and hope that they would work as expected. Sometimes it is indeed the case, but random bash commands found online can actually pose huge threats to unsuspecting users. People have a risk of running malicious or insecure commands without knowing their usage. And these commands can really wreak havoc, given how powerful they are.
+
+Some other people actually want to learn how bash commands work, but are just intimidated by the long man pages that they have to look through and they just give up. ExplainShell for Chrome aims to help reduce the effort of lookup to bare minimum as you guys will see in the demo in the end. 
+
+Finally, our project also helps users discover and explore more bash commands, because we have developed this analytics site that shows trending commands and other analytics data that users will definitely find helpful.
+
+So what goals did we have in mind when we started the project?
+
+The first goal is to develop a Chrome Extension that automatically identifies and extracts bash commands from web pages. After identifying all the bash commands in a web page, we can let the user to choose from one of the two options.
+
+They can either choose to add a link to every bash command so that when they click on the link they'll be redirected to the usage documentation of explainshell.com
+
+Or they can choose to have a nice in-page popup that summarizes the command usage when they hover over the bash command.
+
+The second goal is develop a backend analytics site to keep track of the bash commands that people lookup. This allows us to --> and again, it helps users -->
+
+And we do eventually plan to publish on Chrome Web Store for people to use.
+
+For technologies, we used HTML CSS & JS for the chrome extension part, and for the backend analytics site, we used Node.js. For version control, we used Git and pushed our code to Github.
+
+So next off, I'll cover our approach to the entire project. First, we built a very rudimentary version of the Chrome extension, it simply allows the user to select some text across a web page, and right click on the text will show this menu which allows them to access the usage doc easily.
+
+Next we developed a set of heuristics to identify and extract bash commands automatically from a web page.
+
+This allows the extension to replace identified bash commands with links that take users to documentations on explainshell.com
+
+Next, we attempt to make things easier even more by inserting these in-page summaries of command usage whenever the user hovers the mouse over any bash command, just like this...
+
+In the meantime, we developed the backend analytics site and integrated the site with the Chrome extension. Justin will demo for you guys in a moment.
+
+Here we have our original schedule, and also our revised schedule in mid Novemeber. Due to time constraints, we had to make some adjustments and dropped some of the functionalities, which Justin will now talk about.
+
