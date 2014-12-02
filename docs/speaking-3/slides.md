@@ -2,6 +2,17 @@
 
 ## Table of Contents
 
+- Team
+- Project Overview
+- Rationale
+- Goals
+- Technologies
+- Approach
+- Schedules
+- Results
+- Lessons Learned
+- Summary
+
 ## Team
 - Jake Zimmerman
 - Justin Gallagher
@@ -43,13 +54,43 @@
 
 ## Revised Schedule
 
-## Results (Did we succeed?)
-
-## Demo
+## Results
+- Chrome extension supports embedded links and popups
+    - Still no public API for explainshell.com
+    - Popups pull up the full explainshell website
+    - HTTPS not supported
+    - Reports correctly to the trends website
+- Fully functional trends website
+    - Track number of uses of extension
+    - View clicks by time, source page, domain, and command
+    - No authenication, API call in plain text Javascript
 
 ## Lessons Learned
+- Plan lots of extra time to accommodate for changing schedules
+    - We were often behind deadlines, causing others to be held up by bottlenecks
+    - Keep people accountable to deadlines
+- Contributing to open source software is a large undertaking
+    - Need to read lots of documentation and unfamiliar code
+    - Pull requests take time
+    - A lot of work is necessary to do it properly
+- Documenting your code is essential
+    - We often had problems running each others' code
+    - Time is wasted trying to decipher what code is doing rather than adding to it
 
 ## Summary
+- Team
+- Project Overview
+- Rationale
+- Goals
+- Technologies
+- Approach
+- Schedules
+- Results
+- Lessons Learned
+- Summary
+
+## Demo
+- TODO: screenshot.PNG
 
 [es]: http://www.explainshell.com/
 [gitrepo]: http://github.com/justingallagher/explainshell-for-chrome
