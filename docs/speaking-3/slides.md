@@ -28,13 +28,28 @@
 ## Technologies Used
 - Chrome Extension: HTML/CSS/Javascript
 - Backend analyics site: Node.js
-- VC with Git (on Github)
+- VC with Git (on [Github](gitrepo))
 
 ## Approach
 1. Rudimentary version of Chrome extension: Allow users to select text and lookup selected command.
 1. Develop heuristics to identify and extract bash commands automatically from a web page
 1. In-page link to jump to explainshell.com
 1. Insert in-page summary on hover
-1. 
+1. Develop backend analytics site
+1. Integrate analytics site with Chrome extension
+
+## Original Schedule
+- TODO
+
+## Revised Schedule
+
+## Results (Did we succeed?)
+
+## Demo
+
+## Lessons Learned
+
+## Summary
 
 [es]: http://www.explainshell.com/
+[gitrepo]: http://github.com/justingallagher/explainshell-for-chrome
