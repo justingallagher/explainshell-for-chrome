@@ -48,16 +48,17 @@
 \begin{abstract}
   When working in a command line environment, running correct, safe shell
   commands is a daunting task---\texttt{man} pages and Google searches often
-  don't cut it or take too much time. We aim to solve this problem of educating
-  people about various shell commands by wrapping access to a well known
-  website, ExplainShell.com, in a Chrome extension.  We also wrote an
-  accompanying website to aggregate data and provide a community around learning
-  shell commands. The extension provides immediate access to the website so as
-  to minimally detract from the user's current workflow. We were able to
-  implement all the features that we wanted, including processing the page to
-  turn shell commands into clickable links, as well as optionally display a
-  popup in the context of the page. The website is able to show community wide
-  trends about how people are learning commands to help other get engaged.
+  don't cut it or take too much time. We solve this problem of educating people
+  about various shell commands by wrapping access to a well-known website,
+  ExplainShell.com, in a Chrome extension.  We also provide an accompanying
+  website to aggregate data and provide a community around learning shell
+  commands. The extension provides immediate access to the website so as to
+  minimally detract from the user's current workflow. We implemented all the
+  planned features, including processing the page to turn shell commands into
+  clickable links as well as optionally displaying an informational popup in
+  the context of the page. Meanwhile, the website is able to show community
+  wide trends about how people are learning commands to help other get engaged,
+  compounding the goals of our extension.
 \end{abstract}
 
 \newpage
@@ -83,68 +84,67 @@ For those who work in a command line environment, it's hard to find references
 that are both accurate and accessible when trying to run particular commands.
 Manual pages certainly satisfy the ``accurate'' stipulation, as they're often
 the most definitive source of information on a command. On the other hand,
-Google has made vast amounts of information accessible to users, but at the cost
-of quality.
+Google has made vast amounts of accessible information, but it sometimes lacks
+the high quality found in man pages.
 
-By and large, users favor accessibility over accuracy, meaning that commands and
-lines of code found online are copied and pasted from online with almost the
-same level of trust as that of a \texttt{man} page. This poses a grave threat to
-users, as people run the risk of running malicious or insecure commands
-unknowingly.
+By and large, users favor accessibility over accuracy, meaning that users copy
+and paste commands and lines of code without considering their accuracy. This
+poses a grave threat to users, as people risk running malicious or insecure
+commands unknowingly.
 
 Luckily, there exist sites like ExplainShell.com which aim to rectify this
 situation to some extent. By copying and pasting commands into ExplainShell.com,
-users can at a glance see usage information for a particular command, giving
-credibility to the correctness of particular commands. ExplainShell works well,
-but it provides one additional step on top of the simple copy/paste operation
-that users would otherwise perform. Unfortunately, this step is oftentimes one
-operation too many.
+users can see information for a particular command and all flags used or
+technologies used, giving credibility to the correctness of particular commands.
+ExplainShell works well, but it provides one additional step on top of the
+simple copy/paste operation that users would otherwise perform. Unfortunately,
+this extra step is oftentimes one too many.
 
 \subsection{Project Overview}
 
-The primary goal of our project, ExplainShell for Chrome, was to reduce the
-invasiveness of this step in people's normal workflow. Using a Chrome Extension,
-that user's could install with a single click, we would be able to provide the
-access to the same information that ExplainShell provided, but directly in the
-context of the page.
+The primary goal of our project was to reduce the invasiveness of this step in
+people's normal workflow. Using a Chrome Extension that users could install
+with a single click, we would be able to provide access to the same information
+that ExplainShell provided, but directly in the context of the page.
 
-This manifests itself in the extension in one of two forms, chosen at the
-discretion of the user. With the first option enabled, all lines of code that
-look like shell commands are turned into links. Instead of having to copy,
-change tabs, and paste, users can have one-click access to the information. The
-alternative option is to merely hover over the relevant lines and have an inline
-popup display the relevant information.
+This access manifests itself in the extension in two settings. With the first
+option enabled, all lines of code that look like shell commands are turned into
+links. Instead of having to copy, change tabs, and paste, users can simply
+click to access the information. The alternative option is to merely hover over
+the relevant lines and have an inline popup display the relevant information.
 
 A secondary goal of our project was to provide a sort of community for people
 learning and using shell commands. We wanted to take advantage of the
-information we would have access to given a sizable install base of our Chrome
+information we would have access to, given a sizable install base of our Chrome
 Extension. This project, called ExplainShell Trends, would tap into the
-clicks or hovers sent to our Chrome extension, and send them off to a
-centralized analytics site. This analytics site would be able to display trends
-such as most popular command, most popular site, most viewed articles, etc.
+clicks or hovers sent to our Chrome extension and send them off to a
+centralized analytics site. Here, we crunch the data to display trends such as
+such as most popular commands and sites, most viewed articles, and more.
 
-By aggregating data from all installations of our Chrome extension, we created a
-collective learning grounds that was both accessible and accurate (backed by
-ExplainShell.com). Even people who don't have the ExplainShell for Chrome
-extension installed would be able to see what sorts of commands people view most
-commonly and learn new things.
+By aggregating data from all installations of our Chrome extension, we
+effectively ``crowd-sourced'' educating people about shell commands. We created
+a collective learning grounds that was both accessible and accurate.
+Additionally, even people who don't have the ExplainShell for Chrome extension
+installed can see what sorts of commands people view most commonly so that
+everyone can learn new skills.
 
 \subsection{Analysis of Literature Review}
 
 The literature on this sort of subject was nearly non-existent. What
 documentation there is on shell scripting is usually of poor quality and widely
-varied. Additionally, it is normally a topic that is learned in the process of
-doing something else; shell scripting is generally a means to an end rather than
-a pursuit in and of itself. This vicious cycle means that finding literature for
+varied. Additionally, it's normally a topic learned in the process of doing
+something else; shell scripting is generally a means to an end rather than a
+pursuit in and of itself. This vicious cycle means that finding literature for
 our topic was a struggle.
 
-We did manage to find value in sites like BashOneliners.com and
-LinuxCommand.org. BashOneliners.com is a site dedicated to the collection and
-explanation of single-line Bash snippets. LinuxCommand.org is a tutorial for
-explaining the shell to first-time users. Both of these sites possessed an
-element of what we wanted to encapsulate in our project. Using them as a
-reference point, we were able to refine our product and aim to fill a gap in the
-current app ecosystem.
+Overcoming this, We did manage to find value in sites like BashOneliners.com
+and LinuxCommand.org. BashOneliners.com is a site dedicated to the collection
+and explanation of single-line Bash snippets. LinuxCommand.org is a tutorial
+for explaining the shell to first-time users. Both of these sites possessed an
+element of what we wanted to encapsulate in our project, but also failed at
+either encouraging community involvement or were of poor craftsmanship. Using
+them as a reference point, we were able to refine our product and aim to fill a
+gap in the current app ecosystem.
 
 Apart from these sites, we used various walkthroughs and tutorials to guide our
 development process, with varying effectiveness. Some notable references we used
