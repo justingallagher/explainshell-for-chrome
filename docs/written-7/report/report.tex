@@ -158,23 +158,23 @@ ideas into what could be accomplished or tweaked to solve our problem.
 \subsection{Successes}
 
 Considering the product that we were able to produce in the end, I would say
-that we were successful at achieving both of our goals---provide a convenient
+that we were successful at achieving both of our goals: provide a convenient
 way to look up shell commands and create a centralized site for people to
 observe shell scripting trends. We have a working Chrome extension that puts
-ExplainShell's information as close as possible to the user's workflow. Our
+ExplainShell's information as close as possible to the user's workflow, and our
 trends site is able to aggregate many pieces of information collected by our
 Chrome extension. While we don't have a huge number of people using the app
-presently, with a little bit of marketing, there is no reason why it couldn't
-be a practical solution for people in the large.
+presently, with a little bit of marketing there is no reason why it couldn't
+be a widespread solution.
 
 It is interesting to note that the way the Chrome extension works now is
 different from the way any of us planned it initially. Along the way, we
 realized that the time required to implement certain features would be
-prohibitively high, so we dropped them, but because of the way we planned the
-development of the extension (see Approach), nothing that we ended up having to
-drop significantly affected our progress towards our original goals. We discuss
-the difference between our original plans and final outcomes in more detail in
-Approach and Results.
+prohibitively high, so we dropped them. However, because of the way we planned
+the development of the extension (see Approach), nothing that we dropped
+significantly affected our successfulness. We discuss the difference between
+our original plans and final outcomes in more detail in the Approach and
+Results.
 
 \section{Approach}
 
@@ -186,77 +186,80 @@ special note of the technologies used to implement the extension and the site.
 We planned Phase 1 of our project as the minimum viable product that could add
 value on top of ExplainShell.com. For this phase, we implemented a Chrome
 extension that allowed the user to select text, right click and be presented
-with a context menu item directing the user directly to ExplainShell.com in a
-new tab. We implemented this very shortly after our planning session to have a
-working product.
+with a context menu item directing the user to ExplainShell.com in a new tab.
+We implemented this very shortly after our planning session.
 
-While there was certainly room for improvement at this step, Phase 1 was
+While there was certainly room for improvement after this step, Phase 1 was
 important for initializing the infrastructure of our project. Without having to
 get too heavily invested into the brunt of the projects work, we were able to do
 things like initialize a Git repository for the project, lay out the core files
 to the Chrome extension (written in JavaScript), and push a working app all the
-way through the Chrome Web Store.
+way through the Chrome Web Store registration process.
 
 \subsection{Phase 2}
 
 For Phase 2, we implemented the first of the two options for how to interact
-with our Chrome extension: finding bash command lines in the page and turning
-them into clickable links. This turned out to be somewhat tricky, as without
-doing a significant amount of text processing, it's hard to figure out what is a
-line of bash code and what isn't.
+with our Chrome extension---find bash commands in the page and turn them into
+clickable links. This turned out to be somewhat tricky, as without doing a
+significant amount of text processing, it's hard to figure out what's a line
+of bash code and what isn't.
 
-To combat this, we looked for certain classes that tend to be present on blocks
-of bash code, including the CSS class ``\texttt{lang-sh}'', which is added by the Google
-PrettyPrint processor, a common library for adding color to code snippets. In
-addition, we also interpreted code blocks whose line started with the text
-\texttt{\$ }, as it is a common practice online to preface bash oneliners in
-this way. Obviously, this can't possibly cover all cases, but in our experience
-it is able to identify a large number of bash commands within web pages.
+To combat this, we looked for certain CSS classes that tend to be present on
+blocks of bash code, including the class ``\texttt{lang-sh}'', which is added
+by the Google PrettyPrint processor, a common library for adding color to code
+snippets. We also interpreted code blocks whose line started with the text
+``\texttt{\$ }'', as bash commands. It's a common practice online to preface
+bash oneliners like this. These heuristics don't cover all cases, but in our
+experience they are able to identify a large number of bash commands within web
+pages.
+
+Once the lines have been identified, we simply inserted a link into the current
+page targeting the ExplainShell.com page for that command.
 
 \subsection{Phase 3}
 
 The principal goal of this phase was to implement the other major option:
-displaying a popup when the user hovers over a line of bash code. This end
-result of phase diverged the most from our original intentions of all the
-phases.
+display a popup when the user hovers over a line of bash code. This phase's end
+result diverged the most from our original intentions of all the phases.
 
-Originally, we had planed to provide a new interface around the
-information collected and returned by the underlying ExplainShell application.
-This interface was to be more mobile friendly and also suitable to a
-light-weight popup. This would have required modifying the actual ExplainShell
-backend (written in Flask) and submitting a Pull Request to the original
-ExplainShell project. Due to our teams' limited knowledge of Flask and the
-complexities involved with getting acquainted to a foreign code base, this
-turned out to not be a viable path.
+Originally, we planned to provide a new interface around the information
+collected and returned by the underlying ExplainShell application.  This
+interface was to be more mobile friendly than the ExplainShell.com site and
+also nice for people wishing to see a more abbreviated version of the main
+site. To implement this, we needed to modify the actual ExplainShell backend
+(written in Flask) and submit a Pull Request to the original ExplainShell
+project. Due to our teams' limited knowledge of Flask and the complexities
+involved with getting acquainted to a foreign code base, this turned out to not
+be a viable path.
 
 Instead, we implemented a popup that displayed the actual ExplainShell.com page
 for that line of code. As it turned out, this aligned more or less equally with
 our original goal for the popup. It remains accessible, and is only slightly
 more clunky that we initially intended. For users looking to have the least
 resistance possible, it provides a quick way of bring up the relevant
-ExplainShell.com information. The popup used Bootstrap to provide the popup
-skeleton and animations, which was chosen for its ease of use and widespread
-documentation.
+ExplainShell.com information directly in the context of the page. The popup
+used Bootstrap to provide the skeleton and animations. This was chosen
+for its ease of use and widespread documentation.
 
 \subsection{Phase 4}
 
 ``Phase 4'' was the term that we used to refer to the ExplainShell Trends site
 during project planning and development. Since this phase actually was a project
-own its own for the most part, we were able to proceed on development in this
+on its own for the most part, we were able to proceed on the development of this
 phase alongside development of the Chrome extension.
 
 We implemented the Trends site as a Node.js application with a MongoDB backend.
 This was the best option because as a team, we were most familiar with Node.js,
 and MongoDB's schema-less approach to data storage allowed our models to develop
 rapidly as we adjusted the trends site and added features to it. The visible
-portion of the trends site was implemented again using Bootstrap with a library
-for incorporating JSON-based tables into the page.
+portion of the trends site was implemented using Bootstrap as well. It also
+depends on a library for incorporating JSON-based tables into the page.
 
 The trends site is capable of querying information based on most recently
 clicked items, top sites, and top articles. The trends site frontend is capable
-of taking any of these returned datasets and sorting them by any field. All in
-all, these endpoints provide a wide perspective of what sort of commands are
-popular or potentially interesting to command line users.
+of taking any of these datasets and sorting them by any field. All in all,
+these endpoints provide a wide perspective of what sort of commands are popular
+or potentially interesting to command line users.
 
 \section{Results}
 
@@ -277,21 +280,20 @@ progress towards our original goals and design for the extension didn't entirely
 falter.
 
 We had initially allocated time for contributing a public API to
-ExplainShell for the purpose of making a responsive inline popup for when a user
+ExplainShell for the purpose of making a responsive, inline popup for when a user
 would hover over or tap on a line of shell code. However, realizing that the
 time required to implement this feature was prohibitively high, we managed to
 find a different solution to provide the user with a simple popup by just
 embedding the relevant ExplainShell page itself in the popup.
 
 We have included our project's Gantt chart and revised Gantt chart in
-Figure~\ref{gantt-revised} for reference (rotated for space considerations). The
+Figure 1 for reference (rotated for space considerations). The
 second, third, and fourth items of the revised Gantt chart correspond to the
 items we dropped.
 
 \begin{center}
-  \begin{figure}[h!]
+  \begin{figure}[h]
     \includegraphics[height=0.95\textheight, keepaspectratio]{../../gantt-chart-revised-rotated}
-    \label{gantt-revised}
     \caption{Revised Gantt chart, in context with progress on old Gantt chart}
   \end{figure}
 \end{center}
@@ -316,7 +318,7 @@ to get our acts together and we all knew it.
 Coming out of this meeting, we started to get some actual work done. We worked
 diligently to make up time lost, checking items off our Gantt chart with renewed
 vigor. It was a really powerful experience, seeing what can be accomplished with
-just a little bit of discussion and understanding, and is what we all agree is
+just a little bit of discussion and understanding. We all agree that this was
 the most impactful lesson learned from the project.
 
 As a team, we also learned many individual, technical lessons. For example,
@@ -337,7 +339,7 @@ features we had originally intended.
 Another recommendation that we have is to understand the importance of
 bottlenecks. When working on this project, we didn't accurately recognize which
 steps of our project would require the most work. With two days of planning
-compared with 2 hours of planning to come up with our Gantt chart, we could have
+instead of two hours of planning to come up with our Gantt chart, we could have
 more adequately recognized these gaps in our planning and compensated for them
 up front.
 
