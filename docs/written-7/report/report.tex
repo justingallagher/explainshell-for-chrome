@@ -46,16 +46,18 @@
 \end{center}
 
 \begin{abstract}
-  There are many snippets of shell code on the web that pose threats to
-  unsuspecting web users, who may accidentally run malicious or insecure
-  commands. Documentation for such commands exists, but is unwieldy and
-  intimidating. Written in Javascript, CSS, and HTML, the ExplainShell Chrome
-  extension provides information in a user-friendly and convenient manner. When
-  a user clicks on a shell command on a webpage, the extension opens an iframe
-  containing an explanation of the command. Although certain features of the
-  extension were unable to be completed, this extension is fully functional and
-  significantly reduces the hassle required to look up shell commands found
-  online.
+  When working in a command line environment, running correct, safe shell
+  commands is a daunting task---\texttt{man} pages and Google searches often
+  don't cut it or take too much time. We aim to solve this problem of educating
+  people about various shell commands by wrapping access to a well known
+  website, ExplainShell.com, in a Chrome extension.  We also wrote an
+  accompanying website to aggregate data and provide a community around learning
+  shell commands. The extension provides immediate access to the website so as
+  to minimally detract from the user's current workflow. We were able to
+  implement all the features that we wanted, including processing the page to
+  turn shell commands into clickable links, as well as optionally display a
+  popup in the context of the page. The website is able to show community wide
+  trends about how people are learning commands to help other get engaged.
 \end{abstract}
 
 \newpage
@@ -156,13 +158,13 @@ ideas into what could be accomplished or tweaked to solve our problem.
 \subsection{Successes}
 
 Considering the product that we were able to produce in the end, I would say
-that we were successful at achieving both of our goals: providing a convenient 
+that we were successful at achieving both of our goals: providing a convenient
 way to look up shell commands and a centralized site for people to observe shell
-scripting trends. We have a working Chrome extension that puts ExplainShell's 
-information as close as possible to the user's workflow. Our trends site is able 
-to aggregate many pieces of information collected by our Chrome extension. While 
-we don't have a huge number of people using the app presently, with a little bit 
-of marketing, there is no reason why it couldn't be a practical solution for people 
+scripting trends. We have a working Chrome extension that puts ExplainShell's
+information as close as possible to the user's workflow. Our trends site is able
+to aggregate many pieces of information collected by our Chrome extension. While
+we don't have a huge number of people using the app presently, with a little bit
+of marketing, there is no reason why it couldn't be a practical solution for people
 in the large.
 
 It is interesting to note that the way the Chrome extension works now is
